@@ -1,13 +1,13 @@
 from orator.migrations import Migration
 
 
-class CreateRecipeMealTypeMapsTable(Migration):
+class CreateRecipeMealTypeMapTable(Migration):
 
     def up(self):
         """
         Run the migrations.
         """
-        with self.schema.create('recipe_meal_type_maps') as table:
+        with self.schema.create('recipe_meal_type_map') as table:
             table.increments('id')
             table.integer('meal_type_id').unsigned()
             table.foreign('meal_type_id').references('id').on('meal_types')

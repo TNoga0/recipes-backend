@@ -1,6 +1,5 @@
 from orator.orm.model import Model
 import strawberry
-from dacite import from_dict
 
 from sql_db.models.recipe import Recipe
 
