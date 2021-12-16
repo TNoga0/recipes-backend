@@ -1,0 +1,9 @@
+databases:
+    postgres: 
+        driver: postgres
+        host: localhost
+        database: recipes
+        user: postgres
+        password: pass
+        prefix: ''
+        port: 5432
