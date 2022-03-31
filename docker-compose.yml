@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  backend:
+    build: app
+    command: python3 manage.py run --host=0.0.0.0
+#    command: python3 -m flask run --host=0.0.0.0
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://recipes_flask:pass_flask@db:5432/recipes_flask
+      - FLASK_APP=server/app.py
+      - SQL_HOST=db
+      - SQL_PORT=5432
+      - DATABASE=postgres
+    volumes:
+      - ./app/:/usr/src/app/
+  db:
+    image: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=recipes_flask
+      - POSTGRES_PASSWORD=pass_flask
+      - POSTGRES_DB=recipes_flask
+volumes:
+  postgres_data:

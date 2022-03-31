@@ -1,0 +1,4 @@
+Flask
+flask-restful
+Flask-SQLAlchemy
+psycopg2-binary
